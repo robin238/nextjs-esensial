@@ -3,7 +3,7 @@ import { Source_Sans_3, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { Header } from "./header";
-
+import { Footer } from "./footer";
 const fontSans = Source_Sans_3({
   variable: "--font-sans",
   subsets: ["latin"],
@@ -29,6 +29,7 @@ export default function RootLayout({
       <body className={`${fontSans.variable} ${fontMono.variable} antialiased`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

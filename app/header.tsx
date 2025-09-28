@@ -1,13 +1,6 @@
 import Link from "next/link";
-type Setting = {
-  siteName: string;
-};
+import { getSetting } from "./queries/getSetting";
 
-async function getSetting(): Promise<Setting> {
-  const res = await fetch("http://localhost:3001/settings");
-  const setting = await res.json();
-  return setting;
-}
 export async function Header() {
   const setting = await getSetting();
   return (
