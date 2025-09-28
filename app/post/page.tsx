@@ -1,9 +1,5 @@
-type Post = {
-  id: string;
-  title: string;
-  content: string;
-};
-
+import Link from "next/link";
+import { Post } from "../types/Post";
 // jika ingin dipisahkan menjadi function
 async function getPosts(): Promise<Post[]> {
   const res = await fetch("http://localhost:3001/posts");
@@ -24,6 +20,12 @@ const PostPage = async () => {
         <article key={post.id}>
           <h2> {post.title}</h2>
           <h2> {post.content}</h2>
+          <h2>
+            {" "}
+            <Link href={`/post/${post.slug}`} className="text-blue-500">
+              {post.title}
+            </Link>
+          </h2>
         </article>
       ))}
     </div>

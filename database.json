@@ -1,6 +1,17 @@
 {
   "posts": [
-    { "id": "1", "title": "a title", "content": "content 1" },
-    { "id": "2", "title": "another title", "content": "content 2" }
-  ]
+    {
+      "id": "1",
+      "title": "a title",
+      "slug": "content1",
+      "content": "content 1"
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "slug": "content2",
+      "content": "content 2"
+    }
+  ],
+  "settings": { "siteName": "Robin Blog" }
 }
