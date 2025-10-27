@@ -8,8 +8,8 @@ export async function Nav() {
             <a href="/admin/product">Admin Product</a> */}
 
       <Link href={"/"}>Home</Link>
+      <Link href={"/posts"}>Posts</Link>
       <Link href={"/about"}>About</Link>
-      <Link href={"/about/team"}>Team</Link>
     </nav>
   );
 }

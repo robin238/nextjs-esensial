@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import { Counter } from "@/app/counter";
 import Image from "next/image";
 import { gambarKucing2 } from "@/public/image";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Ini home",
+};
+
 export default function Home() {
   return (
     <div>

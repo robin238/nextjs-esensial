@@ -3,7 +3,21 @@ import { Post } from "@/app/types/Post";
 import React from "react";
 import { CommentForm } from "./comment-form";
 import { LikeButton } from "./like-button";
-async function getPosts(slug: string): Promise<Post> {
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = await getPost(slug);
+
+  return {
+    title: post.title,
+  };
+}
+
+async function getPost(slug: string): Promise<Post> {
   const res = await fetch("http://localhost:3001/posts/?slug=" + slug);
   //   const post = await res.json();
   //   return post[0];
@@ -14,8 +28,7 @@ async function getPosts(slug: string): Promise<Post> {
 
 const PostPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
-  const post = await getPosts(slug);
-  console.log(post);
+  const post = await getPost(slug);
 
   return (
     <>

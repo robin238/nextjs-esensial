@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Post } from "../types/Post";
+
+export const metadata: Metadata = {
+  title: "Post Page",
+  description: "Description Post Page ",
+};
 // jika ingin dipisahkan menjadi function
 async function getPosts(): Promise<Post[]> {
   const res = await fetch("http://localhost:3001/posts");
@@ -22,7 +28,7 @@ const PostPage = async () => {
           <h2> {post.content}</h2>
           <h2>
             {" "}
-            <Link href={`/post/${post.slug}`} className="text-blue-500">
+            <Link href={`/posts/${post.slug}`} className="text-blue-500">
               {post.title}
             </Link>
           </h2>
