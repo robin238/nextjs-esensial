@@ -23,10 +23,10 @@ export async function CreateComment(
   return { error: "" };
 }
 
-export async function CreateLike() {
+export async function CreateLike(postId: string) {
   // fake delay
   await new Promise((resolve, reject) => {
     return setTimeout(() => resolve(true), 3000);
   });
-  console.log("like");
+  console.log("like, postId: ", postId);
 }

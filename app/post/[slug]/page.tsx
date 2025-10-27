@@ -23,7 +23,7 @@ const PostPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
         <h1>Detail Post</h1>
         <h2>{post.title}</h2>
         <h2>{post.content}</h2>
-        <LikeButton />
+        <LikeButton postId={post.id} />
       </div>
       <section>
         <h2>Comment</h2>

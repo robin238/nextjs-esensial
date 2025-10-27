@@ -3,7 +3,7 @@
 import { CreateLike } from "@/app/actions";
 import { useState, useTransition } from "react";
 
-export function LikeButton() {
+export function LikeButton({ postId }: { postId: string }) {
   //   const [pending, setPending] = useState(false);
   const [pending, startTransition] = useTransition();
   async function handleLike() {
@@ -12,7 +12,7 @@ export function LikeButton() {
     // setPending(false);
 
     startTransition(async () => {
-      await CreateLike();
+      await CreateLike(postId);
     });
   }
   return (
