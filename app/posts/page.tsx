@@ -8,6 +8,8 @@ export const metadata: Metadata = {
 };
 // jika ingin dipisahkan menjadi function
 async function getPosts(): Promise<Post[]> {
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
+
   const res = await fetch("http://localhost:3001/posts");
   const posts: Post[] = await res.json();
   return posts;

@@ -1,8 +1,9 @@
 import { CreateComment } from "@/app/actions";
 import { Post } from "@/app/types/Post";
-import React from "react";
+import React, { Suspense } from "react";
 import { CommentForm } from "./comment-form";
 import { LikeButton } from "./like-button";
+import { Comments } from "./comments";
 
 export async function generateMetadata({
   params,
@@ -40,6 +41,9 @@ const PostPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
       </div>
       <section>
         <h2>Comment</h2>
+        <Suspense fallback={<p>loading comments..</p>}>
+          <Comments />
+        </Suspense>
         <CommentForm />
       </section>
     </>
