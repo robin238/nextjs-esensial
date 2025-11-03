@@ -4,6 +4,7 @@ import React, { Suspense } from "react";
 import { CommentForm } from "./comment-form";
 import { LikeButton } from "./like-button";
 import { Comments } from "./comments";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({
   params,
@@ -12,6 +13,10 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const post = await getPost(slug);
+
+  if (!post) {
+    return { title: "post not found" };
+  }
 
   return {
     title: post.title,
@@ -30,6 +35,10 @@ async function getPost(slug: string): Promise<Post> {
 const PostPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const post = await getPost(slug);
+
+  if (!post) {
+    notFound();
+  }
 
   return (
     <>

@@ -9,6 +9,8 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  throw new Error("Error throw in home page");
+
   return (
     <div>
       hello <Counter />

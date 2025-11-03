@@ -35,6 +35,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // throw new Error("Error from root layout");
   return (
     <html lang="en">
       <body className={`${fontSans.variable} ${fontMono.variable} antialiased`}>
