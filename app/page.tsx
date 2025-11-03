@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  throw new Error("Error throw in home page");
+  // throw new Error("Error throw in home page");
 
   return (
     <div>
